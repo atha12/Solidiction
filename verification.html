@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Verification</title>
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <meta charset=utf-8 />
+</head>
+
+<body style="background-color:#E7D4DA;">
+  <div class="container" style="margin-left: 500px;margin-top:200px;">
+  <form style="z-index:10;display:inline-block;" action="/voting/verification.php">
+  <input type='file' onchange="readURL(this);" onclick="document.getElementById('ver').style.display='block';" />
+    <img id="blah" src="#" alt="your image" />
+    <br>
+    <br>
+    <input type="button" value="VERIFY" id="ver" onclick="show()" style="position:relative;left:300px;display:none;"></input>
+  <br>
+  <br>
+  <br>
+  <h3 style="display:inline-block">Name :</h3><h3 id="name" style="display:none;">Atharva Kamat</h3>
+  <br>
+  <br>
+  <h3 style="display:inline-block">Aadhar Number :</h3><h3 id="aadhar" style="display:none;">2408 3503 1066</h3>
+  <br>
+  <br>
+  <h3 style="display:inline-block">DOB :</h3><h3 id="dob" style="display:none;">15/12/1998</h3>
+  <br>
+  <br>
+  <button type="submit">Submit</button>
+</div>
+</form>
+<script>
+function readURL(input) {
+         if (input.files && input.files[0]) {
+             var reader = new FileReader();
+
+             reader.onload = function (e) {
+                 $('#blah')
+                     .attr('src', e.target.result)
+                     .width(150)
+                     .height(200);
+             };
+
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+function show(){
+    document.getElementById("name").style.display="inline-block";
+    document.getElementById("aadhar").style.display="inline-block";
+    document.getElementById("dob").style.display="inline-block";
+}
+</script>
+</html>

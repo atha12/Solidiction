@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+  .no{
+    display: inline-block;
+    font-size: 28px;
+  }
+</style>
+<body>
+  <canvas id="myChart" style="width:50%;height:50%;"></canvas>
+  <p id="candidate-1" class="no" style="margin-left:260px">12</p>
+  <p id="candidate-2" class="no" style="margin-left:460px;">13</p>
+  <p id="candidate-3" class="no" style="margin-left:460px;">15</p>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var chart1 = new Chart(ctx, {
+  // The type of chart we want to create
+  type: 'bar',
+
+  // The data for our dataset
+  data: {
+      labels: ["Barack Obama", "Hillary Clinton", "Donald Trump"],
+      datasets: [{
+          label: "USA Elections",
+          backgroundColor: 'rgb(255, 50, 0)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [8586,3500,7054],
+      }]
+  },
+
+  // Configuration options go here
+  options: {}
+});
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="index.js"></script>
+</html>

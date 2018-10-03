@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Voting Page</title>
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <meta charset=utf-8 />
+</head>
+
+
+<body style="background-color:#8A87FF;">
+<div class="w3-container">
+  <div id="c1" class="w3-card-4 w3-dark-grey" style="margin-top: 20px;margin-left:20px;width:20%;display:inline-block;">
+    <div class="w3-container w3-center">
+      <h3>Candidate 1</h3>
+      <img src="bo.jpg" alt="Avatar" style="width:80%;height:268.84px;">
+      <h5>Barack Obama</h5>
+      <div class="w3-section">
+        <button id="b1" class="w3-button w3-green">Vote</button>
+      </div>
+    </div>
+  </div>
+<!--</div>
+<div class="w3-container">-->
+  <div id="c2" class="w3-card-4 w3-dark-grey" style="margin-top: 20px;margin-left:20px;width:20%;display:inline-block;">
+    <div class="w3-container w3-center">
+      <h3>Candidate 2</h3>
+      <img src="hc.jpg" alt="Avatar" style="width:80%">
+      <h5>Hillary Clinton</h5>
+      <div class="w3-section">
+        <button id="b2" class="w3-button w3-green">Vote</button>
+      </div>
+    </div>
+  </div>
+<!--</div>
+<div class="w3-container">-->
+  <div id="c3" class="w3-card-4 w3-dark-grey" style="margin-top: 20px;margin-left:20px;width:20%;display:inline-block;">
+    <div class="w3-container w3-center">
+      <h3>Candidate 3</h3>
+      <img src="dt.jpg" alt="Avatar" style="width:80%;height:268.84px;">
+      <h5>Donald Trump</h5>
+      <div class="w3-section">
+        <button id="b3" class="w3-button w3-green">Vote</button>
+      </div>
+    </div>
+  </div>
+  <p id="confirm" style="display:none;position:relative;left:570px;font-size:30px;">Confirm your vote?</p>
+  <br>
+
+  <button id="cancel" style="display:none;position:relative;left:850px;" onclick="myFunc()" class="w3-button w3-red">Cancel</button>
+  <form action="/voting/votingballot.php">
+	  <button id="conbut1" style="display:none;position:relative;left:1050px;" class="w3-button w3-blue">Yes, Confirm</button>
+	  <button id="conbut2" style="display:none;position:relative;left:1050px;" class="w3-button w3-blue">Yes, Confirm</button>
+	  <button id="conbut3" style="display:none;position:relative;left:1050px;" class="w3-button w3-blue">Yes, Confirm</button>
+  </form>
+</div>
+<p id="demo" style="text-align:right;margin-top:170px;margin-right: 20px;font-size:36px;"></p>
+<script>
+b1.addEventListener("click",function(){
+  document.getElementById("c2").style.display = "none";
+  document.getElementById("c3").style.display = "none";
+  document.getElementById("b1").style.display = "none";
+  document.getElementById("c1").style.transform = "scale(1.5) translate(100px,100px)";
+  document.getElementById("confirm").style.display = "inline-block";
+  document.getElementById("cancel").style.display = "inline-block";
+  document.getElementById("conbut1").style.display = "inline-block";
+  document.getElementById("conbut2").style.display = "none";
+  document.getElementById("conbut3").style.display = "none";
+  /*document.getElementById("c1").style.transform = "translateY(20px)";*/
+});
+b2.addEventListener("click",function(){
+  document.getElementById("c1").style.display = "none";
+  document.getElementById("c3").style.display = "none";
+  document.getElementById("b2").style.display = "none";
+  document.getElementById("c2").style.transform = "scale(1.5) translate(100px,100px)";
+  document.getElementById("confirm").style.display = "inline-block";
+  document.getElementById("cancel").style.display = "inline-block";
+  document.getElementById("conbut2").style.display = "inline-block";
+  document.getElementById("conbut1").style.display = "none";
+  document.getElementById("conbut3").style.display = "none";
+});
+b3.addEventListener("click",function(){
+  document.getElementById("c2").style.display = "none";
+  document.getElementById("c1").style.display = "none";
+  document.getElementById("b3").style.display = "none";
+  document.getElementById("c3").style.transform = "scale(1.5) translate(100px,100px)";
+  document.getElementById("confirm").style.display = "inline-block";
+  document.getElementById("cancel").style.display = "inline-block";
+  document.getElementById("conbut3").style.display = "inline-block";
+  document.getElementById("conbut2").style.display = "none";
+  document.getElementById("conbut1").style.display = "none";
+});
+
+function myFunc(){
+  location.reload();
+}
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 22, 2018 01:52:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        window.location="charts.html";
+    }
+}, 1000);
+</script>
+</body>
+</html>
